@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}index{% endblock %}
+ {% block head %}
+     <link rel="stylesheet" type="text/css" href="/static/css/site.min.css">
+     <style>
+         .header{
+            background-image: url("/static/imgs/ssbj.jpg");
+        }
+     </style>
+     <link href="/static/css/signin.css" rel="stylesheet">
+ {% endblock %}
+{% block body %}
+    <div class="header" >
+        <div class="logoimg">
+            <a href="" title="智联招聘职位快捷搜索"><img src="/static/imgs/logo.png" alt="智联招聘职位快捷搜索" width="200" height="100"></a>
+  </div>
+        <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+
+        <form class="form-signin" method="post" action="{% url 'index' %}">
+        {% csrf_token %}
+        <label for="inputEmail" class="sr-only">职位:</label>
+        <input type="text"id="inputEmail" class="form-control" placeholder="职位" required="" autofocus="" name="zw">
+        <label for="inputPassword" class="sr-only">地点:</label>
+        <input type="text" class="form-control" placeholder="工作地点可不填默认为全国" name="dd">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">搜索</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+    </div>
+{% endblock %}
+{% block js %}{% endblock %}

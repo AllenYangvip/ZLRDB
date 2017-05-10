@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}index{% endblock %}
+ {% block head %}
+
+     <style>
+
+     </style>
+ {% endblock %}
+{% block body %}
+   <div class="container theme-showcase" role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+      <div>
+          <div style="margin-top:0px;margin-left: 0px;">
+              <a href="" title="智联招聘职位快捷搜索"><img src="/static/imgs/logo.png" alt="智联招聘职位快捷搜索" width="100" height="50"></a>
+          </div>
+          <div style="display: block; float:right ;margin:0px 1px;">
+
+              <button type="button" class="btn btn-sm btn-success" onClick="clicke()"  >导出到Excel</button>
+        </div></div>
+          <table class="table table-striped">
+
+            <thead>
+              <tr>
+                <th> 职位 </th>
+                <th> 公司 </th>
+                <th>地点</th>
+                  <th>工资</th>
+                  <th>时间</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for item in querset %}
+              <tr>
+
+                <td><a href="{{ item.zw_url }}">{{ item.name }}</a></td>
+                <td><a href="{{ item.cp_url }}">{{ item.company }}</a></td>
+                <td>{{ item.location }}</td>
+                  <td>{{ item.salary }}</td>
+                  <td>{{ item.time }}</td>
+              </tr>
+                {% endfor %}
+
+            </tbody>
+          </table>
+      </div>
+
+
+    </div>
+{% endblock %}
+{% block js %}
+     <script>
+        function clicke(){
+            $.get("{% url 'export' %}",function(callback){
+                console.log(callback);
+            });
+        }
+
+ </script>
+{% endblock %}
