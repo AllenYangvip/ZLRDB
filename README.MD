@@ -6,7 +6,7 @@
 
 # Python 3.6.1
 # 用法：
-    pip3 install < requirements.txt
+    pip3 install -r requirements.txt
     如果想要从后台查看数据，可以用户python manage.py creatsuperuser命令新建用户也可使用现有用户
     用户：yjh 密码：yjh123456
 
